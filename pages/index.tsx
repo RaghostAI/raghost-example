@@ -1,86 +1,90 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
+import React, { useState, useCallback } from "react";
+import type { NextPage } from "next";
+import Head from "next/head";
+
+export function QueryBlock(props: { collectionId?: string }) {
+  const { collectionId } = props;
+  const [isLoading, setIsLoading] = useState(false);
+  const [response, setResponse] = useState("");
+  const [question, setQuestion] = useState("");
+
+  const handleQuerySubmit = useCallback(async () => {
+    try {
+      setIsLoading(true);
+
+      const result = await fetch("/api/query", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ collectionId, query: question }),
+      });
+      const data = await result.json();
+      console.log("data", data);
+      setResponse(data.data.answer);
+
+      setIsLoading(false);
+    } catch (error) {
+      setIsLoading(false);
+      console.error("Error querying collection:", error);
+    }
+  }, [question]);
+
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="font-semibold self-start">
+        Query NVIDIA 10-Ks and 10-Qs from the last 10 years
+      </div>
+      <input
+        value={question}
+        onChange={(e: any) => setQuestion(e.target.value)}
+        placeholder="What was NVIDIA's revenue in 2020?"
+        className="border border-gray-300 rounded-md p-2"
+      />
+      {isLoading && <button disabled>Loading...</button>}
+      {!isLoading && (
+        <button
+          onClick={handleQuerySubmit}
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Submit
+        </button>
+      )}
+      {response && (
+        <p>
+          <b>Response:</b> {response}
+        </p>
+      )}
+    </div>
+  );
+}
 
 const Home: NextPage = () => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Raghost Sample App</title>
       </Head>
 
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
-
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
-            pages/index.tsx
-          </code>
-        </p>
-
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and its API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+      <main className="flex flex-1 w-full flex-col items-center pt-40 px-20 text-center">
+        <div className="w-full max-w-lg">
+          <QueryBlock collectionId="clot64hmt0009nc23wo4w9y8h" />
         </div>
       </main>
 
       <footer className="flex h-24 w-full items-center justify-center border-t">
+        Powered by
         <a
-          className="flex items-center justify-center gap-2"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          className="ml-1 text-blue-500 hover:text-blue-700 transition-colors"
+          href="https://raghost.ai"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
-          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+          Raghost
         </a>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
