@@ -51,9 +51,9 @@ export function QueryBlock(props: { collectionId?: string }) {
         </button>
       )}
       {response && (
-        <p>
+        <div className="pt-8 self-start">
           <b>Response:</b> {response}
-        </p>
+        </div>
       )}
     </div>
   );
