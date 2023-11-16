@@ -1,5 +1,7 @@
 # RagHost Example App
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FRaghostAI%2Fraghost-example&env=RAGHOST_API_KEY)
+
 This example shows how to use the RagHost ([raghost.ai](https://raghost.ai)) API to query some embedded documents.
 
 - [🤔 What is RagHost?](#what-is-raghost)
@@ -27,13 +29,27 @@ You can embed documents using `/embed`, and query your document collections usin
 
 3. Enter in your OpenAI API Key on the **Settings** page, to use for querying.
 
-4. Install dependencies:
+4. Go to the [RagHost Playground Page](https://raghost.ai/playground) and embed a document by uploading a PDF.
+
+5. Copy the `Collection ID`, go to the file `pages/index.tsx`, and edit this line:
+
+```html
+<QueryBlock collectionId="clot64hmt0009nc23wo4w9y8h" />
+```
+
+to be this, with your Collection ID:
+
+```html
+<QueryBlock collectionId="<your-collection-id>" />
+```
+
+6. Install dependencies:
 
    ```bash
    yarn install
    ```
 
-5. Start the server:
+7. Start the server:
 
    ```bash
    yarn dev
