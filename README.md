@@ -2,8 +2,8 @@
 
 This example shows how to use the RagHost (raghost.ai) API to query some embedded documents.
 
-- [What is RagHost?](#what-is-raghost)
-- [Getting Started](#getting-started)
+- [🤔 What is RagHost?](#what-is-raghost)
+- [🏁 Getting Started](#getting-started)
 
 In this example, we have already uploaded 35 documents to RagHost using `/embed`, and this interface lets the user query the document collection.
 
