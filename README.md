@@ -30,6 +30,10 @@ You can embed documents using `/embed`, and query your document collections usin
 
 2. Get your API key from [raghost.ai](https://raghost.ai) by signing up and going to the **Settings** page. Add your RagHost API key under `RAGHOST_API_KEY` to your `.env` file.
 
+   ```
+   RAGHOST_API_KEY=your-api-key
+   ```
+
 3. Enter in your OpenAI API Key on the **Settings** page, to use for querying.
 
 4. Go to the [RagHost Playground Page](https://raghost.ai/playground) and embed a document by uploading a PDF.
