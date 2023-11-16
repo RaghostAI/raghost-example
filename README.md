@@ -36,15 +36,15 @@ You can embed documents using `/embed`, and query your document collections usin
 
 5. Copy the `Collection ID`, go to the file `pages/index.tsx`, and edit this line:
 
-```html
-<QueryBlock collectionId="clot64hmt0009nc23wo4w9y8h" />
-```
+   ```html
+   <QueryBlock collectionId="clot64hmt0009nc23wo4w9y8h" />
+   ```
 
 to be this, with your Collection ID:
 
-```html
-<QueryBlock collectionId="<your-collection-id>" />
-```
+    ```html
+    <QueryBlock collectionId="<your-collection-id>" />
+    ```
 
 6. Install dependencies:
 
