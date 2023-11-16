@@ -63,7 +63,7 @@ const Home: NextPage = () => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>
-        <title>Raghost Sample App</title>
+        <title>RagHost Sample App</title>
       </Head>
 
       <main className="flex flex-1 w-full flex-col items-center pt-40 px-20 text-center">
@@ -80,7 +80,7 @@ const Home: NextPage = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Raghost
+          RagHost
         </a>
       </footer>
     </div>
