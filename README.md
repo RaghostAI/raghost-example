@@ -17,11 +17,13 @@ You can embed documents using `/embed`, and query your document collections usin
 
 # Getting Started
 
-1. Copy the `.env.example` file and add your `RAGHOST_API_KEY` environment variable:
+1. Copy the `.env.example` file.
 
    ```bash
    cp .env.example .env
    ```
+
+2. Add your RagHost API key under `RAGHOST_API_KEY` to your `.env` file. You can get this API key from raghost.ai by signing up for an account and going to the **Settings** page.
 
 3. Install dependencies:
 
