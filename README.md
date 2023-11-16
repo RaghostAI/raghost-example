@@ -1,10 +1,9 @@
 # RagHost Example App
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FRaghostAI%2Fraghost-example&env=RAGHOST_API_KEY)
-
 This example shows how to use the RagHost ([raghost.ai](https://raghost.ai)) API to query some embedded documents.
 
 - [🤔 What is RagHost?](#what-is-raghost)
+- [▲ Deploy to Vercel](#deploy-to-vercel)
 - [🏁 Getting Started](#getting-started)
 
 In this example, we have already uploaded 35 documents to a collection on RagHost using `/embed`, and this interface lets the user query the document collection.
@@ -16,6 +15,10 @@ In this example, we have already uploaded 35 documents to a collection on RagHos
 RagHost lets you rapidly build production-ready RAG (Retrieval-Augmented Generation) pipelines with an easy-to-use API.
 
 You can embed documents using `/embed`, and query your document collections using `/ask`.
+
+# Deploy to Vercel
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FRaghostAI%2Fraghost-example&env=RAGHOST_API_KEY)
 
 # Getting Started
 
