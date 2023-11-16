@@ -10,17 +10,17 @@ In this example, we have already uploaded 35 documents to a collection on RagHos
 
 <img width="450" alt="Screenshot 2023-11-11 at 5 51 33 PM" src="https://github.com/RaghostAI/raghost-example/assets/1459660/1aff780c-e80f-4a54-90d3-675d00473a06">
 
-# What is RagHost?
+## What is RagHost?
 
 RagHost lets you rapidly build production-ready RAG (Retrieval-Augmented Generation) pipelines with an easy-to-use API.
 
 You can embed documents using `/embed`, and query your document collections using `/ask`.
 
-# Deploy to Vercel
+## Deploy to Vercel
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FRaghostAI%2Fraghost-example&env=RAGHOST_API_KEY)
 
-# Getting Started
+## Getting Started
 
 1. Copy the `.env.example` file.
 
