@@ -13,7 +13,7 @@ In this example, we have already uploaded 35 documents to a collection on RagHos
 
 RagHost lets you rapidly build production-ready RAG (Retrieval-Augmented Generation) pipelines with an easy-to-use API.
 
-You can embed documents using `/embed`, and query your document collections using `/query`.
+You can embed documents using `/embed`, and query your document collections using `/ask`.
 
 # Getting Started
 
