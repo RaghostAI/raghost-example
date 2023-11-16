@@ -23,9 +23,11 @@ You can embed documents using `/embed`, and query your document collections usin
    cp .env.example .env
    ```
 
-2. Add your RagHost API key under `RAGHOST_API_KEY` to your `.env` file. You can get this API key from [raghost.ai](https://raghost.ai) by signing up for an account and going to the **Settings** page. Enter your OpenAI API Key in on the **Settings** page, to use for querying.
+2. Get your API key from [raghost.ai](https://raghost.ai) by signing up and going to the **Settings** page. Add your RagHost API key under `RAGHOST_API_KEY` to your `.env` file.
 
-3. Install dependencies:
+3. Enter in your OpenAI API Key on the **Settings** page, to use for querying.
+
+4. Install dependencies:
 
    ```bash
    yarn install
