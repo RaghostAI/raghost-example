@@ -7,7 +7,7 @@ This example shows how to use the RagHost (raghost.ai) API to query some embedde
 
 In this example, we have already uploaded 35 documents to a collection on RagHost using `/embed`, and this interface lets the user query the document collection.
 
-<img width="947" alt="Screenshot 2023-11-11 at 5 51 33 PM" src="https://github.com/marissamarym/raghost-example/assets/1459660/5b59bcd4-3d6b-4e76-aa86-e2fcaffb930b">
+<img width="450" alt="Screenshot 2023-11-11 at 5 51 33 PM" src="https://github.com/RaghostAI/raghost-example/assets/1459660/1aff780c-e80f-4a54-90d3-675d00473a06">
 
 # What is RagHost?
 
