@@ -1,29 +1,46 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import axios from "axios";
+import { NextRequest, NextResponse } from "next/server";
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  const { collectionId, query } = req.body;
+export const runtime = "edge";
+
+export const config = {
+  supportsResponseStreaming: true,
+};
+
+async function streamProxyHandler(req: NextRequest) {
+  if (req.method !== "POST") {
+    return new Response("Method Not Allowed", { status: 405 });
+  }
 
   try {
-    const url = `https://raghost.ai/api/ask`;
-    const response = await axios.post(
-      url,
-      { collectionId, query },
-      {
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${process.env.RAGHOST_API_KEY}`,
-        },
-      }
-    );
+    const { collectionId, documentId, query, topK, stream, includeChunks } =
+      await req.json();
 
-    res.status(200).json(response.data);
+    const requestStream = await fetch("https://raghost.ai/api/ask", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.RAGHOST_API_KEY}`,
+      },
+      body: JSON.stringify({
+        collectionId,
+        documentId,
+        query,
+        topK,
+        stream,
+        includeChunks,
+      }),
+    });
+
+    if (!requestStream.ok) {
+      throw new Error(`HTTP error! Status: ${requestStream.status}`);
+    }
+
+    // Stream the response back
+    return new Response(requestStream.body);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error });
+    console.error("Error in stream proxy:", error);
+    return new Response("Internal Server Error", { status: 500 });
   }
 }
+
+export default streamProxyHandler;

@@ -12,16 +12,36 @@ export function QueryBlock(props: { collectionId?: string }) {
     try {
       setIsLoading(true);
 
-      const result = await fetch("/api/query", {
+      const responseStream = await fetch("/api/query", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ collectionId, query: question }),
+        body: JSON.stringify({ collectionId, query: question, stream: true }),
       });
-      const data = await result.json();
-      console.log("data", data);
-      setResponse(data.data.answer);
+
+      if (responseStream.status !== 200) {
+        const data = await responseStream.json();
+        console.log("Error", data);
+        return;
+      }
+
+      const data = responseStream.body;
+      // @ts-ignore
+      const reader = data.getReader();
+      const decoder = new TextDecoder();
+      let done = false;
+      let fullValue = "";
+
+      while (!done) {
+        const { value, done: doneReading } = await reader.read();
+        done = doneReading;
+        const chunkValue = decoder.decode(value);
+
+        fullValue += chunkValue;
+
+        setResponse(fullValue);
+      }
 
       setIsLoading(false);
     } catch (error) {
