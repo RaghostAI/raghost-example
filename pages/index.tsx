@@ -86,7 +86,7 @@ const Home: NextPage = () => {
         <title>RagHost Sample App</title>
       </Head>
 
-      <main className="flex flex-1 w-full flex-col items-center pt-40 px-20 text-center">
+      <main className="flex flex-1 w-full flex-col items-center pt-40 px-20">
         <div className="w-full max-w-lg">
           <QueryBlock collectionId="clot64hmt0009nc23wo4w9y8h" />
         </div>
