@@ -10,6 +10,10 @@ In this example, we have already uploaded 35 documents to a collection on RagHos
 
 <img width="450" alt="Screenshot 2023-11-11 at 5 51 33 PM" src="https://github.com/RaghostAI/raghost-example/assets/1459660/1aff780c-e80f-4a54-90d3-675d00473a06">
 
+## Live Demo
+
+See https://raghost-example.vercel.app/ for the live demo.
+
 ## What is RagHost?
 
 RagHost lets you rapidly build production-ready RAG (Retrieval-Augmented Generation) pipelines with an easy-to-use API.
