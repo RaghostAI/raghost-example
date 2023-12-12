@@ -101,7 +101,7 @@ export function QueryBlock(props: { collectionId?: string }) {
         </button>
       )}
       {response && (
-        <div className="py-8 self-start">
+        <div className="break-words whitespace-pre-wrap py-8 self-start">
           <b>Response:</b> {response}
         </div>
       )}
