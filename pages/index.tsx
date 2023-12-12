@@ -101,7 +101,7 @@ export function QueryBlock(props: { collectionId?: string }) {
         </button>
       )}
       {response && (
-        <div className="pt-8 self-start">
+        <div className="py-8 self-start">
           <b>Response:</b> {response}
         </div>
       )}
@@ -118,7 +118,7 @@ const Home: NextPage = () => {
 
       <main className="flex flex-1 w-full flex-col items-center pt-40 px-20">
         <div className="w-full max-w-lg">
-          <QueryBlock collectionId="clpmxm8h70003r121g9l4z1on" />
+          <QueryBlock collectionId="clpmxm8680002r121ade4sbp3" />
         </div>
       </main>
 
