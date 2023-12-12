@@ -50,17 +50,47 @@ export function QueryBlock(props: { collectionId?: string }) {
     }
   }, [question]);
 
+  const bookPdfLink =
+    "https://github.com/varunkashyapks/Books/blob/master/High-Performance-Browser-Networking-Ilya-Grigorik.pdf";
+
+  const sampleQuestions = [
+    "What is TCP?",
+    "Tell me about Server-Sent Events",
+    "Tell me about WebSockets",
+  ];
   return (
     <div className="flex flex-col gap-4">
-      <div className="font-semibold self-start">
-        Query NVIDIA 10-Ks and 10-Qs from the last 10 years
+      <div className="text-lg font-semibold self-start">
+        Query <b>High Performance Browser Networking</b> by Ilya Grigorik
+      </div>
+      <div className="self-start mb-4">
+        Book available on GitHub{" "}
+        <a
+          className="cursor-pointer text-blue-600 dark:text-blue-400 hover:underline"
+          href={bookPdfLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          here.
+        </a>
       </div>
       <input
         value={question}
         onChange={(e: any) => setQuestion(e.target.value)}
-        placeholder="What was NVIDIA's revenue in 2020?"
+        placeholder="Tell me about Server-Sent Events"
         className="border border-gray-300 rounded-md p-2"
       />
+      <div className="flex flex-col gap-2 -mt-2 mb-2">
+        {sampleQuestions.map((sampleQuestion) => (
+          <div
+            key={sampleQuestion}
+            className="cursor-pointer text-blue-600 dark:text-blue-400 hover:underline"
+            onClick={() => setQuestion(sampleQuestion)}
+          >
+            {sampleQuestion}
+          </div>
+        ))}
+      </div>
       {isLoading && <button disabled>Loading...</button>}
       {!isLoading && (
         <button
@@ -88,7 +118,7 @@ const Home: NextPage = () => {
 
       <main className="flex flex-1 w-full flex-col items-center pt-40 px-20">
         <div className="w-full max-w-lg">
-          <QueryBlock collectionId="clot64hmt0009nc23wo4w9y8h" />
+          <QueryBlock collectionId="clpmxm8h70003r121g9l4z1on" />
         </div>
       </main>
 
