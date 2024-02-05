@@ -118,7 +118,7 @@ const Home: NextPage = () => {
 
       <main className="flex flex-1 w-full flex-col items-center pt-40 px-20">
         <div className="w-full max-w-lg">
-          <QueryBlock collectionId="clpmxm8680002r121ade4sbp3" />
+          <QueryBlock collectionId="f0e4c93d-313d-43f8-b6f3-c7bfacb4cc45" />
         </div>
       </main>
 
