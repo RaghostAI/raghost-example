@@ -10,7 +10,7 @@ In this example, we have already uploaded documents to a collection on RagHost u
 
 <img width="832" alt="Screenshot 2023-12-12 at 12 39 05 PM" src="https://github.com/RaghostAI/raghost-example/assets/1459660/899fd38d-3aaf-4f23-a713-2172fefcc2c9">
 
-## Live Demo
+## RagHost Live Demo
 
 See https://raghost-example.vercel.app/ for the live demo.
 
